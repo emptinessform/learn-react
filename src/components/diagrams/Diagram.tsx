@@ -1,10 +1,12 @@
 export default function Diagram({
   title,
   caption,
+  viewBox = '0 0 600 260',
   children,
 }: {
   title: string;
   caption?: string;
+  viewBox?: string;
   children: React.ReactNode;
 }) {
   return (
@@ -12,7 +14,7 @@ export default function Diagram({
       <svg
         role="img"
         aria-label={title}
-        viewBox="0 0 600 260"
+        viewBox={viewBox}
         style={{
           width: '100%',
           height: 'auto',
