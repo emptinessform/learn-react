@@ -23,4 +23,4 @@ Vite · React · TypeScript · React Router · react-live · 수제 SVG 도식
 
 - 설계 문서: [docs/superpowers/specs/2026-06-27-react-curriculum-site-design.md](docs/superpowers/specs/2026-06-27-react-curriculum-site-design.md)
 
-> 현재 설계가 확정된 단계이며, 구현은 이 설계 문서를 바탕으로 진행됩니다.
+> 1단계(뼈대) 구현 완료 — `npm install && npm run dev`로 실행
