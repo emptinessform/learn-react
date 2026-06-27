@@ -74,10 +74,10 @@ export default function ComponentTreeDiagram() {
         </g>
       ))}
 
-      <text x={480} y={150} textAnchor="middle" fill="var(--text-dim)" fontSize={13}>
+      <text x={490} y={224} textAnchor="middle" fill="var(--text-dim)" fontSize={13}>
         props ↓
       </text>
-      <text x={480} y={170} textAnchor="middle" fill="var(--text-dim)" fontSize={13}>
+      <text x={490} y={244} textAnchor="middle" fill="var(--text-dim)" fontSize={13}>
         (위 → 아래)
       </text>
     </Diagram>
