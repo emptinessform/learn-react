@@ -6,9 +6,11 @@ const DEFAULT_SCOPE = { useState, useEffect, useRef };
 export default function Playground({
   initialCode,
   scope,
+  noInline = false,
 }: {
   initialCode: string;
   scope?: Record<string, unknown>;
+  noInline?: boolean;
 }) {
   return (
     <div
@@ -19,7 +21,7 @@ export default function Playground({
         margin: '1rem 0',
       }}
     >
-      <LiveProvider code={initialCode.trim()} scope={{ ...DEFAULT_SCOPE, ...scope }} noInline={false}>
+      <LiveProvider code={initialCode.trim()} scope={{ ...DEFAULT_SCOPE, ...scope }} noInline={noInline}>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1px', background: 'var(--border)' }}>
           <div style={{ background: 'var(--surface-2)' }}>
             <div style={{ padding: '0.3rem 0.6rem', color: 'var(--text-dim)', fontSize: '0.8rem' }}>

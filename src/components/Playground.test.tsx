@@ -10,3 +10,13 @@ test('편집 영역(코드 라벨)을 보여준다', () => {
   render(<Playground initialCode={'<span>x</span>'} />);
   expect(screen.getByText('코드 (편집 가능)')).toBeInTheDocument();
 });
+
+test('noInline 모드에서 render()로 출력한 결과를 보여준다', () => {
+  render(
+    <Playground
+      noInline
+      initialCode={`function App() { return <strong>렌더됨</strong> }\nrender(<App />)`}
+    />,
+  );
+  expect(screen.getByText('렌더됨')).toBeInTheDocument();
+});

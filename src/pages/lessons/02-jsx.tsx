@@ -19,10 +19,13 @@ export default function Jsx02() {
       <Section title="직접 해보기">
         <p>아래 코드를 고치면 오른쪽 미리보기가 즉시 바뀝니다.</p>
         <Playground
+          noInline
           initialCode={`function App() {
   const name = '여러분';
   return <h2>JSX로 인사하기: 안녕, {name}!</h2>;
-}`}
+}
+
+render(<App />);`}
         />
       </Section>
     </>
