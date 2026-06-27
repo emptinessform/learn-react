@@ -6,6 +6,11 @@ dist/
 dist-ssr/
 *.local
 
+# TypeScript build artifacts (composite project emit)
+*.tsbuildinfo
+vite.config.d.ts
+vite.config.js
+
 # logs
 *.log
 npm-debug.log*
@@ -27,3 +32,6 @@ Thumbs.db
 
 # SDD scratch
 .superpowers/
+
+# local Claude settings
+.claude/
