@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo } from 'react'; // 플레이그라운드 scope로 전달하기 위해 가져온다
 import Section from '../../components/Section';
 import CodeBlock from '../../components/CodeBlock';
 import Playground from '../../components/Playground';
