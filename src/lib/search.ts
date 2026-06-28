@@ -22,7 +22,7 @@ export function searchAll(query: string): SearchResult[] {
   for (const l of lessons) {
     const haystack = [l.title, l.section, ...l.keywords].join(' ').toLowerCase();
     if (haystack.includes(q)) {
-      const snippet = l.keywords.length ? `${l.section} · ${l.keywords.join(', ')}` : l.section;
+      const snippet = `${l.section} · ${l.keywords.join(', ')}`;
       results.push({ type: '강의', title: l.title, snippet, to: `/lesson/${l.id}` });
     }
   }
