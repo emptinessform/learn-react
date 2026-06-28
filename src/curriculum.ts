@@ -69,6 +69,24 @@ export const lessons: LessonMeta[] = [
     title: '커스텀 훅 만들기',
     Body: lazy(() => import('./pages/lessons/10-custom-hooks')),
   },
+  {
+    id: '11-composition',
+    section: '구조화',
+    title: '컴포넌트 합성',
+    Body: lazy(() => import('./pages/lessons/11-composition')),
+  },
+  {
+    id: '12-context',
+    section: '구조화',
+    title: 'Context로 값 공유하기',
+    Body: lazy(() => import('./pages/lessons/12-context')),
+  },
+  {
+    id: '13-routing',
+    section: '구조화',
+    title: 'React Router로 페이지 나누기',
+    Body: lazy(() => import('./pages/lessons/13-routing')),
+  },
 ];
 
 export const totalLessons = lessons.length;

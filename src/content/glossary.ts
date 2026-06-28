@@ -126,4 +126,35 @@ export const glossary: Term[] = [
     related: ['hook'],
     relatedLessonId: '10-custom-hooks',
   },
+  {
+    id: 'composition',
+    term: '합성 (Composition)',
+    definition:
+      '작은 컴포넌트를 조립해 큰 화면을 만드는 방식. 주로 children prop으로 다른 컴포넌트를 끼워 넣어 재사용한다. React는 상속보다 합성을 권장한다.',
+    related: ['component', 'props'],
+    relatedLessonId: '11-composition',
+  },
+  {
+    id: 'prop-drilling',
+    term: 'prop drilling',
+    definition:
+      '깊은 곳의 컴포넌트에 값을 넘기려고 중간 컴포넌트들이 쓰지도 않는 props를 계속 전달해야 하는 문제. Context로 해소할 수 있다.',
+    related: ['props', 'context'],
+    relatedLessonId: '12-context',
+  },
+  {
+    id: 'context',
+    term: 'Context',
+    definition:
+      '컴포넌트 트리 전체에서 값을 공유하게 해 주는 React 기능. createContext로 만들고 Provider로 값을 내려주며 useContext로 어느 깊이에서든 꺼낸다.',
+    related: ['prop-drilling', 'state'],
+    relatedLessonId: '12-context',
+  },
+  {
+    id: 'routing',
+    term: '라우팅 (Routing)',
+    definition:
+      '주소(URL)에 따라 다른 컴포넌트를 보여주는 것. React 자체엔 없고 react-router-dom 같은 라이브러리로 더한다. 새로고침 없이 화면만 바꾼다.',
+    relatedLessonId: '13-routing',
+  },
 ];
