@@ -20,8 +20,10 @@ export function searchAll(query: string): SearchResult[] {
   const results: SearchResult[] = [];
 
   for (const l of lessons) {
-    if (l.title.toLowerCase().includes(q) || l.section.toLowerCase().includes(q)) {
-      results.push({ type: '강의', title: l.title, snippet: l.section, to: `/lesson/${l.id}` });
+    const haystack = [l.title, l.section, ...l.keywords].join(' ').toLowerCase();
+    if (haystack.includes(q)) {
+      const snippet = l.keywords.length ? `${l.section} · ${l.keywords.join(', ')}` : l.section;
+      results.push({ type: '강의', title: l.title, snippet, to: `/lesson/${l.id}` });
     }
   }
 

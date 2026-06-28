@@ -32,3 +32,13 @@ test('결과는 to 경로를 가진다', () => {
     expect(r.to.startsWith('/')).toBe(true);
   }
 });
+
+test('제목·섹션에 없는 키워드로도 강의를 찾는다', () => {
+  // 'redux'는 어떤 강의 제목/섹션에도 없고 15강 keywords에만 있다
+  const redux = searchAll('redux').find((r) => r.type === '강의');
+  expect(redux?.to).toBe('/lesson/15-state-management');
+
+  // 'focus'는 09-useref keywords에만 있다
+  const focus = searchAll('focus').find((r) => r.type === '강의');
+  expect(focus?.to).toBe('/lesson/09-useref');
+});

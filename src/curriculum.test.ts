@@ -9,6 +9,12 @@ test('totalLessons는 강의 수와 같다', () => {
   expect(totalLessons).toBe(lessons.length);
 });
 
+test('모든 강의는 검색용 keywords를 가진다', () => {
+  for (const l of lessons) {
+    expect(l.keywords.length).toBeGreaterThan(0);
+  }
+});
+
 test('getLesson은 메타데이터를 찾는다', () => {
   expect(getLesson('01-intro')?.title).toBe('React란 무엇인가');
   expect(getLesson('없음')).toBeUndefined();
