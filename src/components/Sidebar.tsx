@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import { lessonsBySection } from '../curriculum';
 import { useProgress } from '../hooks/useProgress';
 import SidebarSearch from './SidebarSearch';
+import ThemeToggle from './ThemeToggle';
 
 const REFS = [
   { to: '/', label: '개요' },
@@ -26,6 +27,7 @@ export default function Sidebar() {
         overflowY: 'auto',
       }}
     >
+      <ThemeToggle />
       <SidebarSearch />
 
       <h3 style={{ color: 'var(--text-dim)', fontSize: '0.85rem' }}>참고 자료</h3>

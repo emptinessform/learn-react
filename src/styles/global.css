@@ -13,6 +13,20 @@
   --maxw: 880px;
 }
 
+/* 라이트 테마 (data-theme="light"일 때 위 변수들을 덮어쓴다) */
+:root[data-theme='light'] {
+  --bg: #f7f8fa;
+  --surface: #ffffff;
+  --surface-2: #eef1f5;
+  --border: #d7dce3;
+  --text: #1b1f27;
+  --text-dim: #5b6472;
+  --accent: #2f6fed;
+  --accent-strong: #1f5fe0;
+  --ok: #15a05a;
+  --warn: #b8860b;
+}
+
 * { box-sizing: border-box; }
 
 body {
@@ -21,6 +35,7 @@ body {
   background: var(--bg);
   color: var(--text);
   line-height: 1.7;
+  transition: background 0.2s, color 0.2s;
 }
 
 a { color: var(--accent); text-decoration: none; }
