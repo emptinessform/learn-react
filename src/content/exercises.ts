@@ -150,7 +150,7 @@ export const exercises: Record<string, Exercise[]> = {
     {
       question: '커스텀 훅과 그냥 일반 함수의 차이는 무엇인가요?',
       answer:
-        '커스텀 훅은 내부에서 useState 같은 훅을 사용하고 이름이 use로 시작합니다. 일반 함수는 훅을 호출할 수 없습니다(훅 규칙). 그래서 상태 로직을 담으려면 커스텀 훅으로 만듭니다.',
+        '커스텀 훅은 내부에서 useState 같은 훅을 사용하고 이름이 use로 시작합니다. 훅 규칙상 훅은 React 컴포넌트나 커스텀 훅 안에서만 호출해야 하므로, 상태 로직을 재사용하려면 일반 함수가 아니라 커스텀 훅(use로 시작)으로 만듭니다.',
     },
   ],
   '11-composition': [
@@ -186,7 +186,7 @@ export const exercises: Record<string, Exercise[]> = {
     {
       question: 'Context의 value가 바뀌면 어떤 컴포넌트들이 다시 그려지나요?',
       answer:
-        '그 Context를 useContext로 구독하는 모든 컴포넌트가 다시 그려집니다. 그래서 자주 바뀌는 값을 큰 범위 Context에 넣으면 불필요한 리렌더가 생길 수 있습니다.',
+        '그 Provider 안에 있으면서 해당 Context를 useContext로 구독하는 컴포넌트들이 다시 그려집니다(Provider 밖은 영향 없음). 그래서 자주 바뀌는 값을 큰 범위 Context에 넣으면 불필요한 리렌더가 생길 수 있습니다.',
     },
   ],
   '13-routing': [
