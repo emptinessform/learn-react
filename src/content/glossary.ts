@@ -188,4 +188,44 @@ export const glossary: Term[] = [
     related: ['build'],
     relatedLessonId: '17-deploy',
   },
+  {
+    id: 'immutability',
+    term: '불변성 (Immutability)',
+    definition:
+      '기존 값을 직접 바꾸지 않고 새 값으로 교체하는 원칙. React는 state가 "새 참조"인지로 변경을 감지하므로, 배열·객체는 push/직접대입 대신 [...arr], {...obj}처럼 새로 만들어 setState 한다.',
+    related: ['state'],
+    relatedLessonId: '07-usestate',
+  },
+  {
+    id: 'batching',
+    term: '배칭 (Batching)',
+    definition:
+      'React가 한 이벤트에서 일어난 여러 setState를 묶어 한 번만 리렌더하는 것. 덕분에 setState를 여러 번 호출해도 화면은 한 번만 갱신된다.',
+    related: ['state'],
+    relatedLessonId: '07-usestate',
+  },
+  {
+    id: 'reconciliation',
+    term: '재조정 (Reconciliation)',
+    definition:
+      'state가 바뀌면 React가 새 Virtual DOM 트리를 이전 트리와 비교(diff)해 실제로 달라진 부분만 DOM에 반영하는 과정.',
+    related: ['virtual-dom'],
+    relatedLessonId: '07-usestate',
+  },
+  {
+    id: 'one-way-data-flow',
+    term: '단방향 데이터 흐름 (One-way Data Flow)',
+    definition:
+      '데이터(props)가 부모에서 자식으로 한 방향으로만 흐르는 React의 원칙. 데이터가 어디서 와서 어디로 가는지 추적하기 쉬워진다.',
+    related: ['props', 'composition'],
+    relatedLessonId: '11-composition',
+  },
+  {
+    id: 'spa',
+    term: 'SPA (Single Page Application)',
+    definition:
+      '한 개의 HTML을 받아 화면 전환을 자바스크립트(라우팅)로 처리하는 앱. 페이지 전체를 새로 불러오지 않고 필요한 부분만 바꿔 빠르게 동작한다.',
+    related: ['routing', 'deployment'],
+    relatedLessonId: '13-routing',
+  },
 ];

@@ -55,7 +55,7 @@ render(<Counter />);`}
       <Callout type="tip">
         상태는 "직접 바꾸지 말고" 항상 <code>setState</code> 함수로 바꿉니다. 예를 들어 배열에 항목을
         추가할 때도 <code>arr.push()</code>가 아니라 <code>setArr([...arr, 새값])</code>처럼 새 값을
-        넘겨야 React가 변경을 감지합니다.
+        넘겨야 React가 변경을 감지합니다 (<TermLink termId="immutability">불변성</TermLink>).
       </Callout>
     </>
   );
