@@ -6,7 +6,9 @@ function loadAll(): Record<string, string> {
   try {
     const raw = localStorage.getItem(NOTES_KEY);
     const parsed = raw ? JSON.parse(raw) : {};
-    return parsed && typeof parsed === 'object' ? (parsed as Record<string, string>) : {};
+    return parsed && typeof parsed === 'object' && !Array.isArray(parsed)
+      ? (parsed as Record<string, string>)
+      : {};
   } catch {
     return {};
   }
