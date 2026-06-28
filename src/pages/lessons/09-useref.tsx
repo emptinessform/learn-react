@@ -42,7 +42,7 @@ inputRef.current.focus();`}
   return (
     <div>
       <input ref={inputRef} placeholder="여기에 포커스됩니다" />{' '}
-      <button onClick={() => inputRef.current.focus()}>입력창에 포커스</button>
+      <button onClick={() => inputRef.current?.focus()}>입력창에 포커스</button>
     </div>
   );
 }
