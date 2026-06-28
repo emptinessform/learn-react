@@ -3,6 +3,7 @@ import CodeBlock from '../../components/CodeBlock';
 import Playground from '../../components/Playground';
 import Callout from '../../components/Callout';
 import TermLink from '../../components/TermLink';
+import ControlledInputDiagram from '../../components/diagrams/ControlledInputDiagram';
 
 export default function Forms06() {
   return (
@@ -22,6 +23,7 @@ export default function Forms06() {
 />`}
           caption="value는 state에서, 변경은 onChange에서 — 입력값의 '진실의 출처'가 state 하나로 모인다."
         />
+        <ControlledInputDiagram />
       </Section>
 
       <Section title="직접 해보기">

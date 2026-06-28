@@ -5,6 +5,9 @@ import ImperativeVsDeclarativeDiagram from './ImperativeVsDeclarativeDiagram';
 import VirtualDomDiagram from './VirtualDomDiagram';
 import ComponentTreeDiagram from './ComponentTreeDiagram';
 import ReactWorkflowDiagram from './ReactWorkflowDiagram';
+import StateUpdateDiagram from './StateUpdateDiagram';
+import UseEffectLifecycleDiagram from './UseEffectLifecycleDiagram';
+import ControlledInputDiagram from './ControlledInputDiagram';
 
 test('웹 3요소 도식은 접근성 라벨과 핵심 텍스트를 포함한다', () => {
   render(<WebTrioDiagram />);
@@ -48,4 +51,25 @@ test('React 개발 과정 도식은 접근성 라벨과 단계 텍스트를 포�
   expect(screen.getByRole('img', { name: 'React 개발 과정' })).toBeInTheDocument();
   expect(screen.getByText('프로젝트 생성')).toBeInTheDocument();
   expect(screen.getByText('배포')).toBeInTheDocument();
+});
+
+test('state 변경 사이클 도식은 접근성 라벨과 핵심 단계를 포함한다', () => {
+  render(<StateUpdateDiagram />);
+  expect(screen.getByRole('img', { name: 'state 변경 → 재렌더 사이클' })).toBeInTheDocument();
+  expect(screen.getByText('setState(새 값)')).toBeInTheDocument();
+  expect(screen.getByText('컴포넌트 재실행')).toBeInTheDocument();
+});
+
+test('useEffect 생명주기 도식은 접근성 라벨과 단계를 포함한다', () => {
+  render(<UseEffectLifecycleDiagram />);
+  expect(screen.getByRole('img', { name: 'useEffect 생명주기' })).toBeInTheDocument();
+  expect(screen.getByText('마운트 (처음 등장)')).toBeInTheDocument();
+  expect(screen.getByText('언마운트 (사라짐)')).toBeInTheDocument();
+});
+
+test('제어 컴포넌트 흐름 도식은 접근성 라벨과 노드를 포함한다', () => {
+  render(<ControlledInputDiagram />);
+  expect(screen.getByRole('img', { name: '제어 컴포넌트 데이터 흐름' })).toBeInTheDocument();
+  expect(screen.getByText('onChange(e)')).toBeInTheDocument();
+  expect(screen.getByText('setState(값)')).toBeInTheDocument();
 });

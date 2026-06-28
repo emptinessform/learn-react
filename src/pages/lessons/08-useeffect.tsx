@@ -3,6 +3,7 @@ import CodeBlock from '../../components/CodeBlock';
 import Playground from '../../components/Playground';
 import Callout from '../../components/Callout';
 import TermLink from '../../components/TermLink';
+import UseEffectLifecycleDiagram from '../../components/diagrams/UseEffectLifecycleDiagram';
 
 export default function UseEffect08() {
   return (
@@ -34,6 +35,7 @@ export default function UseEffect08() {
   return () => clearInterval(id); // 정리
 }, []);`}
         />
+        <UseEffectLifecycleDiagram />
       </Section>
 
       <Section title="직접 해보기">

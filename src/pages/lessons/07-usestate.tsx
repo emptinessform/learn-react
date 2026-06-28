@@ -3,6 +3,7 @@ import CodeBlock from '../../components/CodeBlock';
 import Playground from '../../components/Playground';
 import Callout from '../../components/Callout';
 import TermLink from '../../components/TermLink';
+import StateUpdateDiagram from '../../components/diagrams/StateUpdateDiagram';
 
 export default function UseState07() {
   return (
@@ -20,6 +21,7 @@ export default function UseState07() {
 setCount(count + 1); // 상태를 바꾸면 화면이 다시 그려진다`}
           caption="useState는 [현재 값, 변경 함수] 쌍을 돌려준다."
         />
+        <StateUpdateDiagram />
       </Section>
 
       <Section title="함수형 업데이트">
