@@ -16,8 +16,9 @@ test('Callout은 타입 라벨을 렌더링한다', () => {
 });
 
 test('CodeBlock은 코드를 렌더링한다', () => {
-  render(<CodeBlock code="const a = 1;" />);
-  expect(screen.getByText('const a = 1;')).toBeInTheDocument();
+  // 구문 강조로 코드가 여러 토큰 span으로 나뉘므로 전체 텍스트로 확인한다.
+  const { container } = render(<CodeBlock code="const a = 1;" />);
+  expect(container.textContent).toContain('const a = 1;');
 });
 
 test('ProgressBar는 퍼센트를 표시한다', () => {
