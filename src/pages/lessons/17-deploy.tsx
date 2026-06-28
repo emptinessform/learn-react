@@ -33,9 +33,11 @@ git push        # → 서비스가 자동으로 npm run build 후 배포`}
       </Section>
 
       <Callout type="warn">
-        이 사이트처럼 React Router를 쓰는 SPA를 배포할 때는, 모든 경로를 <code>index.html</code>로
-        돌려보내는 설정(history fallback)이 필요합니다. 그렇지 않으면 <code>/lesson/02-jsx</code> 같은
-        주소로 새로고침할 때 404가 납니다. 대부분의 호스팅은 간단한 설정으로 지원합니다.
+        React Router의 기본 방식(<code>BrowserRouter</code>)으로 SPA를 배포하면, 모든 경로를{' '}
+        <code>index.html</code>로 돌려보내는 설정(history fallback)이 필요합니다. 그렇지 않으면{' '}
+        <code>/lesson/02-jsx</code> 같은 주소로 새로고침할 때 404가 납니다. 더 간단한 대안은{' '}
+        <code>HashRouter</code>로, 주소에 #을 써서(예: <code>/#/lesson/02-jsx</code>) 별도 설정 없이도
+        정적 호스팅에서 잘 동작합니다 — 이 사이트도 GitHub Pages 배포를 위해 HashRouter를 씁니다.
       </Callout>
 
       <Callout type="tip">

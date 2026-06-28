@@ -1,17 +1,15 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import App from './App';
 import './styles/global.css';
 
-// Vite의 base('/learn-react/')를 라우터 basename으로 사용한다.
-// 개발 환경(base '/')에서는 '/'가 된다.
-const basename = import.meta.env.BASE_URL.replace(/\/$/, '') || '/';
-
+// HashRouter: 경로를 # 뒤에 둬서(예: /learn-react/#/lesson/02-jsx) 정적 호스팅
+// (GitHub Pages)에서 별도 서버 설정(history fallback) 없이도 새로고침/딥링크가 동작한다.
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter basename={basename}>
+    <HashRouter>
       <App />
-    </BrowserRouter>
+    </HashRouter>
   </StrictMode>,
 );

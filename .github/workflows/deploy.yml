@@ -24,7 +24,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
 
       - run: npm ci
@@ -32,9 +32,6 @@ jobs:
       - run: npm test
 
       - run: npm run build
-
-      # SPA 폴백: 알 수 없는 경로(/learn-react/lesson/...)도 index.html로 부팅되게 한다
-      - run: cp dist/index.html dist/404.html
 
       - uses: actions/configure-pages@v5
 
