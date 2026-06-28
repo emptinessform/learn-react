@@ -22,6 +22,15 @@ test('Q&A id는 중복이 없다', () => {
   expect(new Set(ids).size).toBe(ids.length);
 });
 
+test('Q&A의 relatedLessonId는 존재하는 강의를 가리킨다', () => {
+  const lessonIds = new Set(lessons.map((l) => l.id));
+  for (const item of qa) {
+    if (item.relatedLessonId) {
+      expect(lessonIds.has(item.relatedLessonId)).toBe(true);
+    }
+  }
+});
+
 test('연습문제 키는 모두 실제 강의 id다', () => {
   const ids = new Set(lessons.map((l) => l.id));
   for (const key of Object.keys(exercises)) {
