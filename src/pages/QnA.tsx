@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { qa } from '../content/qa';
 import { getLesson } from '../curriculum';
+import Card from '../components/Card';
 
 export default function QnA() {
   return (
@@ -10,17 +11,7 @@ export default function QnA() {
       {qa.map((item) => {
         const lesson = item.relatedLessonId ? getLesson(item.relatedLessonId) : undefined;
         return (
-          <div
-            key={item.id}
-            id={item.id}
-            style={{
-              border: '1px solid var(--border)',
-              borderRadius: 'var(--radius)',
-              padding: '1rem',
-              margin: '1rem 0',
-              scrollMarginTop: '1rem',
-            }}
-          >
+          <Card key={item.id} id={item.id} style={{ margin: '1rem 0', scrollMarginTop: '1rem' }}>
             <h3 style={{ margin: '0 0 0.5rem' }}>Q. {item.question}</h3>
             <p style={{ margin: 0 }}>A. {item.answer}</p>
             <div
@@ -53,7 +44,7 @@ export default function QnA() {
               )}
               <small style={{ color: 'var(--text-dim)', marginLeft: 'auto' }}>{item.date}</small>
             </div>
-          </div>
+          </Card>
         );
       })}
     </article>

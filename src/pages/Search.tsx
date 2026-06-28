@@ -1,5 +1,6 @@
 import { Link, useSearchParams } from 'react-router-dom';
 import { searchAll } from '../lib/search';
+import Card from '../components/Card';
 
 const BADGE: Record<string, string> = {
   강의: 'var(--accent)',
@@ -42,16 +43,9 @@ export default function Search() {
           <p style={{ color: 'var(--text-dim)', fontSize: '0.9rem' }}>{results.length}개 결과</p>
           <ul style={{ listStyle: 'none', padding: 0 }}>
             {results.map((r) => (
-              <li
-                key={`${r.type}:${r.to}`}
-                style={{
-                  border: '1px solid var(--border)',
-                  borderRadius: 'var(--radius)',
-                  padding: '0.8rem 1rem',
-                  margin: '0.6rem 0',
-                }}
-              >
-                <Link to={r.to}>
+              <li key={`${r.type}:${r.to}`} style={{ margin: '0.6rem 0' }}>
+                <Card style={{ padding: '0.8rem 1rem' }}>
+                  <Link to={r.to}>
                   <span
                     style={{
                       fontSize: '0.7rem',
@@ -75,9 +69,10 @@ export default function Search() {
                     textOverflow: 'ellipsis',
                     whiteSpace: 'nowrap',
                   }}
-                >
-                  {r.snippet}
-                </p>
+                  >
+                    {r.snippet}
+                  </p>
+                </Card>
               </li>
             ))}
           </ul>
