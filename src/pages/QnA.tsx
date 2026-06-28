@@ -32,9 +32,9 @@ export default function QnA() {
                 marginTop: '0.6rem',
               }}
             >
-              {(item.tags ?? []).map((tag) => (
+              {(item.tags ?? []).map((tag, i) => (
                 <span
-                  key={tag}
+                  key={`${item.id}-${tag}-${i}`}
                   style={{
                     fontSize: '0.72rem',
                     color: 'var(--text-dim)',
