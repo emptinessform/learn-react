@@ -284,4 +284,24 @@ const visible = hideDone ? todos.filter((t) => !t.done) : todos;
 }, [todos]);`,
     },
   ],
+  '19-capstone-stopwatch': [
+    {
+      question: '시작/정지를 반복할 때 시간이 점점 빨리 흐른다면 무엇을 빠뜨린 걸까요?',
+      answer:
+        'useEffect의 정리(cleanup) 함수입니다. clearInterval로 이전 인터벌을 정리하지 않으면 시작할 때마다 인터벌이 쌓여 setMs가 여러 번 호출됩니다. return () => clearInterval(id)를 넣으세요.',
+      answerCode: `useEffect(() => {
+  if (!running) return;
+  const id = setInterval(() => setMs((m) => m + 100), 100);
+  return () => clearInterval(id);
+}, [running]);`,
+    },
+    {
+      question: '"랩(lap) 기록" 기능을 추가하려면 어떤 상태와 렌더가 필요할까요?',
+      answer:
+        'laps 배열 state를 두고, 랩 버튼에서 현재 ms를 추가(불변 업데이트)합니다. 목록은 map과 key로 렌더합니다.',
+      answerCode: `const [laps, setLaps] = useState([]);
+// 랩 버튼: setLaps((prev) => [...prev, ms])
+// {laps.map((t, i) => <li key={i}>{(t/1000).toFixed(1)}초</li>)}`,
+    },
+  ],
 };

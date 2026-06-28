@@ -136,6 +136,13 @@ export const lessons: LessonMeta[] = [
     keywords: ['캡스톤', '할 일', 'todo', '프로젝트', '종합', '불변 업데이트'],
     Body: lazy(() => import('./pages/lessons/18-capstone-todo')),
   },
+  {
+    id: '19-capstone-stopwatch',
+    section: '캡스톤',
+    title: '직접 만들기: 스톱워치',
+    keywords: ['캡스톤', '스톱워치', 'timer', '타이머', 'setInterval', 'useEffect', 'cleanup'],
+    Body: lazy(() => import('./pages/lessons/19-capstone-stopwatch')),
+  },
 ];
 
 export const totalLessons = lessons.length;
