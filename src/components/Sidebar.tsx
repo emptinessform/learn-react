@@ -7,6 +7,7 @@ const REFS = [
   { to: '/foundations', label: '배경과 원리' },
   { to: '/glossary', label: '용어 사전' },
   { to: '/qa', label: 'Q&A 모음' },
+  { to: '/search', label: '검색' },
 ];
 
 export default function Sidebar() {

@@ -8,11 +8,13 @@ export default function QnA() {
       {qa.map((item) => (
         <div
           key={item.id}
+          id={item.id}
           style={{
             border: '1px solid var(--border)',
             borderRadius: 'var(--radius)',
             padding: '1rem',
             margin: '1rem 0',
+            scrollMarginTop: '1rem',
           }}
         >
           <h3 style={{ margin: '0 0 0.5rem' }}>Q. {item.question}</h3>

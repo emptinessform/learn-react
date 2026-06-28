@@ -5,6 +5,7 @@ import Overview from './pages/Overview';
 import Foundations from './pages/Foundations';
 import Glossary from './pages/Glossary';
 import QnA from './pages/QnA';
+import Search from './pages/Search';
 import LessonRoute from './routes/LessonRoute';
 
 export default function App() {
@@ -18,6 +19,7 @@ export default function App() {
           <Route path="/foundations" element={<Foundations />} />
           <Route path="/glossary" element={<Glossary />} />
           <Route path="/qa" element={<QnA />} />
+          <Route path="/search" element={<Search />} />
           <Route path="/lesson/:id" element={<LessonRoute />} />
           <Route path="*" element={<Overview />} />
         </Routes>
