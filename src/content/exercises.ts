@@ -266,4 +266,22 @@ function User() {
         'dist/ 폴더에 최적화된 정적 파일(HTML·CSS·JS)이 생깁니다. 이 폴더를 정적 호스팅(Vercel·Netlify·GitHub Pages 등)에 올리면 배포가 됩니다. 서버 코드는 필요 없습니다.',
     },
   ],
+  '18-capstone-todo': [
+    {
+      question: '할 일 앱에 "완료한 항목 숨기기" 토글을 추가하려면 무엇이 필요할까요?',
+      answer:
+        'boolean state(예: hideDone)를 하나 더 두고, 렌더 시 todos를 거릅니다. 원본은 그대로 두고 보여줄 목록만 계산하세요.',
+      answerCode: `const [hideDone, setHideDone] = useState(false);
+const visible = hideDone ? todos.filter((t) => !t.done) : todos;
+// visible.map(...) 으로 렌더`,
+    },
+    {
+      question: '할 일 목록을 새로고침해도 유지되게 하려면 어떤 기능을 쓰면 될까요?',
+      answer:
+        'localStorage에 저장합니다. todos가 바뀔 때 useEffect로 저장하고, 처음 마운트 시 불러와 초기값으로 씁니다(이 사이트의 진도·메모 기능과 같은 방식).',
+      answerCode: `useEffect(() => {
+  localStorage.setItem('todos', JSON.stringify(todos));
+}, [todos]);`,
+    },
+  ],
 };

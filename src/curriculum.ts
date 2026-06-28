@@ -129,6 +129,13 @@ export const lessons: LessonMeta[] = [
     keywords: ['빌드', '배포', 'dist', '정적 호스팅', 'GitHub Pages', 'HashRouter', 'history fallback'],
     Body: lazy(() => import('./pages/lessons/17-deploy')),
   },
+  {
+    id: '18-capstone-todo',
+    section: '캡스톤',
+    title: '직접 만들기: 할 일 앱',
+    keywords: ['캡스톤', '할 일', 'todo', '프로젝트', '종합', '불변 업데이트'],
+    Body: lazy(() => import('./pages/lessons/18-capstone-todo')),
+  },
 ];
 
 export const totalLessons = lessons.length;
