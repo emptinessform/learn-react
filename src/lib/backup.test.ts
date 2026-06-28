@@ -39,3 +39,8 @@ test('직렬화 → 적용 왕복이 보존된다', () => {
 test('잘못된 JSON은 예외를 던진다', () => {
   expect(() => applyBackup('not json')).toThrow();
 });
+
+test('메모 값 중 문자열이 아닌 항목은 버린다', () => {
+  applyBackup(JSON.stringify({ version: 1, notes: { a: 'ok', b: 42, c: null } }));
+  expect(JSON.parse(localStorage.getItem(NOTES_KEY) ?? '{}')).toEqual({ a: 'ok' });
+});

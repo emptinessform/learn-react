@@ -16,6 +16,15 @@ function parseOr<T>(raw: string | null, fallback: T): T {
   }
 }
 
+/** 객체에서 값이 문자열인 항목만 남긴다. */
+function stringValuesOnly(obj: Record<string, unknown>): Record<string, string> {
+  const out: Record<string, string> = {};
+  for (const [k, v] of Object.entries(obj)) {
+    if (typeof v === 'string') out[k] = v;
+  }
+  return out;
+}
+
 /** 현재 localStorage의 진도·메모를 JSON 문자열로 직렬화한다. */
 export function serializeBackup(): string {
   const progressRaw = parseOr<unknown>(localStorage.getItem(PROGRESS_KEY), []);
@@ -28,7 +37,7 @@ export function serializeBackup(): string {
       : [],
     notes:
       notesRaw && typeof notesRaw === 'object' && !Array.isArray(notesRaw)
-        ? (notesRaw as Record<string, string>)
+        ? stringValuesOnly(notesRaw as Record<string, unknown>)
         : {},
   };
 
@@ -51,6 +60,6 @@ export function applyBackup(json: string): void {
   }
 
   if (data.notes && typeof data.notes === 'object' && !Array.isArray(data.notes)) {
-    localStorage.setItem(NOTES_KEY, JSON.stringify(data.notes));
+    localStorage.setItem(NOTES_KEY, JSON.stringify(stringValuesOnly(data.notes)));
   }
 }
