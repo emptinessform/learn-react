@@ -31,7 +31,11 @@ export default function Events04() {
       </Section>
 
       <Section title="직접 해보기">
-        <p>버튼을 누를 때마다 숫자가 올라갑니다. onClick 안의 동작을 바꿔 보세요.</p>
+        <p>
+          버튼을 누를 때마다 숫자가 올라갑니다. onClick 안의 동작을 바꿔 보세요. (예제에 나오는{' '}
+          <TermLink termId="state">state</TermLink>는 "클릭하면 값이 바뀐다" 정도로만 보면 됩니다 —
+          자세한 설명은 바로 아래와 '상태와 Hooks' 섹션에 있습니다.)
+        </p>
         <Playground
           noInline
           initialCode={`function Counter() {
