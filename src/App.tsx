@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import ScrollToHash from './components/ScrollToHash';
@@ -9,11 +10,27 @@ import Search from './pages/Search';
 import LessonRoute from './routes/LessonRoute';
 
 export default function App() {
+  const [navOpen, setNavOpen] = useState(false);
+  const closeNav = () => setNavOpen(false);
+
   return (
-    <div style={{ display: 'flex', alignItems: 'flex-start' }}>
+    <div className="app-shell">
       <ScrollToHash />
-      <Sidebar />
-      <main style={{ flex: 1, padding: '2rem' }}>
+
+      <button
+        type="button"
+        className="app-hamburger"
+        aria-label="메뉴 열기"
+        onClick={() => setNavOpen(true)}
+      >
+        ☰
+      </button>
+
+      {navOpen && <div className="app-overlay" data-testid="nav-overlay" onClick={closeNav} />}
+
+      <Sidebar open={navOpen} onNavigate={closeNav} />
+
+      <main className="app-main">
         <Routes>
           <Route path="/" element={<Overview />} />
           <Route path="/foundations" element={<Foundations />} />

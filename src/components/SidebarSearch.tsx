@@ -1,14 +1,17 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export default function SidebarSearch() {
+export default function SidebarSearch({ onNavigate }: { onNavigate?: () => void }) {
   const [q, setQ] = useState('');
   const navigate = useNavigate();
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
     const query = q.trim();
-    if (query) navigate(`/search?q=${encodeURIComponent(query)}`);
+    if (query) {
+      navigate(`/search?q=${encodeURIComponent(query)}`);
+      onNavigate?.();
+    }
   };
 
   return (

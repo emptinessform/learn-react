@@ -12,29 +12,24 @@ const REFS = [
   { to: '/search', label: '검색' },
 ];
 
-export default function Sidebar() {
+export default function Sidebar({
+  open = false,
+  onNavigate,
+}: {
+  open?: boolean;
+  onNavigate?: () => void;
+}) {
   const { isDone } = useProgress();
   return (
-    <aside
-      style={{
-        width: '260px',
-        flexShrink: 0,
-        borderRight: '1px solid var(--border)',
-        padding: '1rem',
-        height: '100vh',
-        position: 'sticky',
-        top: 0,
-        overflowY: 'auto',
-      }}
-    >
+    <aside className={`sidebar${open ? ' sidebar--open' : ''}`}>
       <ThemeToggle />
-      <SidebarSearch />
+      <SidebarSearch onNavigate={onNavigate} />
 
       <h3 style={{ color: 'var(--text-dim)', fontSize: '0.85rem' }}>참고 자료</h3>
       <ul style={{ listStyle: 'none', padding: 0 }}>
         {REFS.map((r) => (
           <li key={r.to}>
-            <NavLink to={r.to} end style={{ display: 'block', padding: '0.3rem 0' }}>
+            <NavLink to={r.to} end onClick={onNavigate} style={{ display: 'block', padding: '0.3rem 0' }}>
               {r.label}
             </NavLink>
           </li>
@@ -48,7 +43,11 @@ export default function Sidebar() {
           <ul style={{ listStyle: 'none', padding: 0 }}>
             {sec.lessons.map((l) => (
               <li key={l.id}>
-                <NavLink to={`/lesson/${l.id}`} style={{ display: 'block', padding: '0.25rem 0' }}>
+                <NavLink
+                  to={`/lesson/${l.id}`}
+                  onClick={onNavigate}
+                  style={{ display: 'block', padding: '0.25rem 0' }}
+                >
                   {isDone(l.id) ? '✓ ' : '○ '}
                   {l.title}
                 </NavLink>
