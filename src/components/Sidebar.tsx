@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { lessonsBySection } from '../curriculum';
 import { useProgress } from '../hooks/useProgress';
+import SidebarSearch from './SidebarSearch';
 
 const REFS = [
   { to: '/', label: '개요' },
@@ -25,6 +26,8 @@ export default function Sidebar() {
         overflowY: 'auto',
       }}
     >
+      <SidebarSearch />
+
       <h3 style={{ color: 'var(--text-dim)', fontSize: '0.85rem' }}>참고 자료</h3>
       <ul style={{ listStyle: 'none', padding: 0 }}>
         {REFS.map((r) => (
