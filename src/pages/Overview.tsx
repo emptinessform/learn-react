@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { lessons, lessonsBySection, totalLessons } from '../curriculum';
 import { useProgress } from '../hooks/useProgress';
 import ProgressBar from '../components/ProgressBar';
+import DataBackup from '../components/DataBackup';
 
 export default function Overview() {
   const { isDone, count } = useProgress();
@@ -38,6 +39,8 @@ export default function Overview() {
           </ul>
         </div>
       ))}
+
+      <DataBackup />
     </article>
   );
 }
