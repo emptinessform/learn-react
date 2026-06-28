@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useProgress } from '../hooks/useProgress';
+import LessonNotes from './LessonNotes';
 
 export type LessonNav = { id: string; title: string };
 
@@ -39,6 +40,8 @@ export default function Lesson({
       </header>
 
       {children}
+
+      <LessonNotes id={id} />
 
       <nav
         style={{
