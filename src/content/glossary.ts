@@ -94,4 +94,36 @@ export const glossary: Term[] = [
     related: ['state'],
     relatedLessonId: '06-forms',
   },
+  {
+    id: 'hook',
+    term: '훅 (Hook)',
+    definition:
+      '함수 컴포넌트에서 상태·생명주기 같은 React 기능을 쓰게 해 주는 함수. 이름이 use로 시작한다(useState, useEffect 등). 컴포넌트 최상위에서만 호출해야 한다.',
+    related: ['state', 'custom-hook'],
+    relatedLessonId: '07-usestate',
+  },
+  {
+    id: 'side-effect',
+    term: '사이드 이펙트 (Side Effect)',
+    definition:
+      '데이터 가져오기, 타이머, 구독, DOM 직접 변경처럼 렌더링 결과 바깥에서 일어나는 작업. React에서는 useEffect 안에서 처리한다.',
+    related: ['dependency-array'],
+    relatedLessonId: '08-useeffect',
+  },
+  {
+    id: 'dependency-array',
+    term: '의존성 배열 (Dependency Array)',
+    definition:
+      'useEffect의 두 번째 인자. 배열 안의 값이 바뀔 때만 이펙트를 다시 실행한다. []이면 처음 한 번만 실행된다.',
+    related: ['side-effect'],
+    relatedLessonId: '08-useeffect',
+  },
+  {
+    id: 'custom-hook',
+    term: '커스텀 훅 (Custom Hook)',
+    definition:
+      '상태 로직을 재사용하려고 직접 만든 훅. 이름이 use로 시작하는 함수이며 내부에서 기본 훅을 사용한다. 상태가 아니라 로직을 공유한다.',
+    related: ['hook'],
+    relatedLessonId: '10-custom-hooks',
+  },
 ];

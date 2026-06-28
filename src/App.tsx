@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
+import ScrollToHash from './components/ScrollToHash';
 import Overview from './pages/Overview';
 import Foundations from './pages/Foundations';
 import Glossary from './pages/Glossary';
@@ -9,6 +10,7 @@ import LessonRoute from './routes/LessonRoute';
 export default function App() {
   return (
     <div style={{ display: 'flex', alignItems: 'flex-start' }}>
+      <ScrollToHash />
       <Sidebar />
       <main style={{ flex: 1, padding: '2rem' }}>
         <Routes>

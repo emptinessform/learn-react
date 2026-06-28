@@ -45,6 +45,30 @@ export const lessons: LessonMeta[] = [
     title: '폼 다루기',
     Body: lazy(() => import('./pages/lessons/06-forms')),
   },
+  {
+    id: '07-usestate',
+    section: '상태와 Hooks',
+    title: 'useState로 상태 관리하기',
+    Body: lazy(() => import('./pages/lessons/07-usestate')),
+  },
+  {
+    id: '08-useeffect',
+    section: '상태와 Hooks',
+    title: 'useEffect로 사이드 이펙트 다루기',
+    Body: lazy(() => import('./pages/lessons/08-useeffect')),
+  },
+  {
+    id: '09-useref',
+    section: '상태와 Hooks',
+    title: 'useRef로 값·DOM 참조하기',
+    Body: lazy(() => import('./pages/lessons/09-useref')),
+  },
+  {
+    id: '10-custom-hooks',
+    section: '상태와 Hooks',
+    title: '커스텀 훅 만들기',
+    Body: lazy(() => import('./pages/lessons/10-custom-hooks')),
+  },
 ];
 
 export const totalLessons = lessons.length;
