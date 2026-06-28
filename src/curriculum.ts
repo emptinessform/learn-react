@@ -21,6 +21,30 @@ export const lessons: LessonMeta[] = [
     title: 'JSX 이해하기',
     Body: lazy(() => import('./pages/lessons/02-jsx')),
   },
+  {
+    id: '03-props',
+    section: '컴포넌트 기초',
+    title: 'props로 데이터 전달하기',
+    Body: lazy(() => import('./pages/lessons/03-props')),
+  },
+  {
+    id: '04-events',
+    section: '컴포넌트 기초',
+    title: '이벤트 다루기',
+    Body: lazy(() => import('./pages/lessons/04-events')),
+  },
+  {
+    id: '05-list',
+    section: '컴포넌트 기초',
+    title: '조건부 렌더링과 리스트',
+    Body: lazy(() => import('./pages/lessons/05-list')),
+  },
+  {
+    id: '06-forms',
+    section: '컴포넌트 기초',
+    title: '폼 다루기',
+    Body: lazy(() => import('./pages/lessons/06-forms')),
+  },
 ];
 
 export const totalLessons = lessons.length;

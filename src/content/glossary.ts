@@ -64,4 +64,34 @@ export const glossary: Term[] = [
     definition:
       '개발 서버가 코드 변경분만 즉시 교체해 새로고침 없이 화면에 반영하는 기능. Vite 개발 서버가 제공한다.',
   },
+  {
+    id: 'event-handler',
+    term: '이벤트 핸들러 (Event Handler)',
+    definition:
+      '클릭·입력 같은 사용자 동작에 반응해 실행되는 함수. JSX에서는 onClick, onChange 같은 camelCase 속성에 함수를 넘겨 연결한다.',
+    relatedLessonId: '04-events',
+  },
+  {
+    id: 'state',
+    term: '상태 (state)',
+    definition:
+      '컴포넌트가 시간에 따라 바뀌는 값을 기억하는 것. state가 바뀌면 React가 화면을 다시 그린다. useState로 선언하며, 자세한 내용은 "상태와 Hooks" 섹션에서 다룬다.',
+    related: ['component', 'props'],
+    relatedLessonId: '04-events',
+  },
+  {
+    id: 'list-key',
+    term: 'key (리스트 키)',
+    definition:
+      '배열을 리스트로 렌더링할 때 각 항목에 붙이는 고유 식별값. React가 어떤 항목이 추가·삭제·변경됐는지 빠르게 알아내도록 돕는다.',
+    relatedLessonId: '05-list',
+  },
+  {
+    id: 'controlled-component',
+    term: '제어 컴포넌트 (Controlled Component)',
+    definition:
+      '입력 요소의 value를 state에 연결하고 onChange로 갱신해, 입력값을 state로 관리하는 폼 요소. "화면에 보이는 값 = state"가 핵심이다.',
+    related: ['state'],
+    relatedLessonId: '06-forms',
+  },
 ];
