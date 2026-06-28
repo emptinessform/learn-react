@@ -107,4 +107,76 @@ export const qa: QnAItem[] = [
     relatedLessonId: '16-performance',
     tags: ['성능', '개념'],
   },
+  {
+    id: 'functional-update-why',
+    question: '한 번의 클릭에서 setCount(count + 1)을 여러 번 불렀는데 1만 올라요.',
+    answer:
+      '그 이벤트가 도는 동안 count는 같은 값으로 고정(클로저)이라, setCount(count + 1)을 여러 번 호출해도 모두 같은 결과로 덮어써집니다. 이전 값을 기반으로 연달아 갱신하려면 setCount(c => c + 1) 함수형 업데이트를 쓰세요. (참고로 React는 한 이벤트의 여러 setState를 묶어 한 번만 렌더합니다 — 배칭. 이는 "+1만 오르는" 원인인 클로저와는 별개의 개념입니다.)',
+    date: '2026-06-28',
+    relatedLessonId: '07-usestate',
+    tags: ['state', '실수'],
+  },
+  {
+    id: 'strictmode-double',
+    question: '개발 모드에서 useEffect가 두 번 실행돼요.',
+    answer:
+      'React.StrictMode가 개발 중에만 컴포넌트를 의도적으로 두 번 마운트(이펙트 실행 → 정리 → 재실행)해 부작용을 드러냅니다. 운영 빌드에서는 한 번만 실행됩니다. cleanup을 제대로 작성했다면 문제가 아니며, 오히려 정리 누락을 잡아 줍니다.',
+    date: '2026-06-28',
+    relatedLessonId: '08-useeffect',
+    tags: ['useEffect', '개발환경'],
+  },
+  {
+    id: 'effect-vs-event',
+    question: '데이터를 언제 useEffect로, 언제 이벤트 핸들러로 처리하나요?',
+    answer:
+      '사용자 동작(클릭·제출)에 대한 반응은 이벤트 핸들러에 두세요. useEffect는 "렌더 결과를 외부와 동기화"할 때 씁니다(구독, 어떤 값이 바뀔 때마다 데이터 가져오기 등). 예: 버튼으로 보내는 요청은 핸들러, 선택된 id가 바뀔 때마다 화면에 보일 데이터를 불러오는 것은 effect.',
+    date: '2026-06-28',
+    relatedLessonId: '08-useeffect',
+    tags: ['useEffect', '개념'],
+  },
+  {
+    id: 'controlled-vs-uncontrolled',
+    question: '제어 컴포넌트와 비제어 컴포넌트의 차이가 뭔가요?',
+    answer:
+      '제어 컴포넌트는 입력값을 state로 관리(value + onChange)해 React가 "진실의 출처"입니다. 비제어 컴포넌트는 DOM이 값을 들고 있고 필요할 때 ref로 읽습니다(초기값은 defaultValue). 대부분 제어 방식을 권장하지만, 단순한 경우 비제어도 괜찮습니다.',
+    date: '2026-06-28',
+    relatedLessonId: '06-forms',
+    tags: ['폼', '개념'],
+  },
+  {
+    id: 'useref-vs-state',
+    question: 'useRef와 useState는 언제 구분해서 쓰나요?',
+    answer:
+      '화면에 보여서 바뀌면 다시 그려야 하는 값은 useState. 바뀌어도 다시 그릴 필요가 없는 값(타이머 id, 이전 값, DOM 노드)은 useRef. ref 변경은 리렌더를 일으키지 않는다는 점이 핵심 차이입니다.',
+    date: '2026-06-28',
+    relatedLessonId: '09-useref',
+    tags: ['useRef', 'state', '개념'],
+  },
+  {
+    id: 'context-vs-lifting',
+    question: 'Context와 상태 끌어올리기 중 무엇을 언제 쓰나요?',
+    answer:
+      '가까운 몇 개 컴포넌트만 공유하면 공통 부모로 끌어올리는 것으로 충분합니다. 트리 깊숙이 여러 곳에서 같은 값이 필요하고 중간 전달이 번거로우면(prop drilling) Context를 씁니다. 단, Context는 구독하는 컴포넌트를 모두 리렌더하므로 자주 바뀌는 값에는 주의하세요.',
+    date: '2026-06-28',
+    relatedLessonId: '15-state-management',
+    tags: ['상태관리', 'Context', '개념'],
+  },
+  {
+    id: 'derived-state',
+    question: 'props로 받은 값을 state에 복사해서 써도 되나요?',
+    answer:
+      '대개 필요 없습니다. props로 계산할 수 있는 값은 렌더 중에 그냥 계산하세요. props를 useState 초기값으로 복사하면 이후 props가 바뀌어도 state가 따라가지 않아 동기화 버그가 생깁니다. 정말 필요한 경우(예: 편집 폼의 초기값)에만 신중히 씁니다.',
+    date: '2026-06-28',
+    relatedLessonId: '03-props',
+    tags: ['props', 'state', '실수'],
+  },
+  {
+    id: 'fragment-key',
+    question: '리스트를 map으로 그릴 때 한 항목에서 여러 요소를 반환하려면? <>에 key를 못 주는데요.',
+    answer:
+      '짧은 문법 <>...</>에는 key를 줄 수 없습니다. 리스트의 각 묶음에 key가 필요하면 <React.Fragment key={id}>...</React.Fragment>로 풀어 쓰세요. (import 후 <Fragment key={id}> 형태도 가능합니다.)',
+    date: '2026-06-28',
+    relatedLessonId: '05-list',
+    tags: ['리스트', 'key', 'Fragment'],
+  },
 ];
