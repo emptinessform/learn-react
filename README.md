@@ -6,8 +6,8 @@ React를 직접 만들면서 배우고, 동시에 다른 사람을 가르칠 수
 
 ## 무엇을 담나요
 
-- **커리큘럼**: 기초부터 실전까지, 각 강의는 설명 + 코드 + 편집·실행 가능한
-  플레이그라운드를 함께 제공
+- **커리큘럼 (17강, 기초→실전)**: 입문 · 컴포넌트 기초 · 상태와 Hooks · 구조화 ·
+  실전. 각 강의는 설명 + 코드 + 편집·실행 가능한 플레이그라운드를 함께 제공
 - **진도 추적**: 강의별 완료 체크 + 전체 진행률
 - **지식 베이스** (한 곳에서 계속 누적)
   - Q&A 모음 — 학습 중 나온 질문과 답변
@@ -23,4 +23,4 @@ Vite · React · TypeScript · React Router · react-live · 수제 SVG 도식
 
 - 설계 문서: [docs/superpowers/specs/2026-06-27-react-curriculum-site-design.md](docs/superpowers/specs/2026-06-27-react-curriculum-site-design.md)
 
-> 1단계(뼈대) 구현 완료 — `npm install && npm run dev`로 실행
+> 기초→실전 전체 커리큘럼(17강) 구현 완료 — `npm install && npm run dev`로 실행
