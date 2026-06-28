@@ -157,4 +157,35 @@ export const glossary: Term[] = [
       '주소(URL)에 따라 다른 컴포넌트를 보여주는 것. React 자체엔 없고 react-router-dom 같은 라이브러리로 더한다. 새로고침 없이 화면만 바꾼다.',
     relatedLessonId: '13-routing',
   },
+  {
+    id: 'lifting-state-up',
+    term: '상태 끌어올리기 (Lifting State Up)',
+    definition:
+      '여러 컴포넌트가 같은 값을 공유해야 할 때, 그 상태를 공통 부모로 옮기는 것. 부모가 상태를 갖고 자식에게 값과 변경 함수를 props로 내려 준다.',
+    related: ['state', 'props', 'context'],
+    relatedLessonId: '15-state-management',
+  },
+  {
+    id: 'memoization',
+    term: '메모이제이션 (Memoization)',
+    definition:
+      '이전 결과를 기억해 같은 입력이면 다시 계산하지 않는 최적화. React에서는 React.memo(컴포넌트), useMemo(값), useCallback(함수)으로 불필요한 작업·리렌더를 줄인다.',
+    relatedLessonId: '16-performance',
+  },
+  {
+    id: 'build',
+    term: '빌드 (Build)',
+    definition:
+      '소스 코드를 브라우저가 바로 쓸 수 있는 최적화된 정적 파일(HTML·CSS·JS)로 변환하는 과정. Vite에서는 npm run build로 dist/ 폴더를 만든다.',
+    related: ['deployment'],
+    relatedLessonId: '17-deploy',
+  },
+  {
+    id: 'deployment',
+    term: '배포 (Deployment)',
+    definition:
+      '빌드 결과물(dist/)을 호스팅 서비스에 올려 사용자가 접속할 수 있게 하는 것. 정적 파일이라 Vercel·Netlify·GitHub Pages 같은 정적 호스팅으로 충분하다.',
+    related: ['build'],
+    relatedLessonId: '17-deploy',
+  },
 ];

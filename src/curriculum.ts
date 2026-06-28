@@ -87,6 +87,30 @@ export const lessons: LessonMeta[] = [
     title: 'React Router로 페이지 나누기',
     Body: lazy(() => import('./pages/lessons/13-routing')),
   },
+  {
+    id: '14-fetch',
+    section: '실전',
+    title: 'API에서 데이터 가져오기',
+    Body: lazy(() => import('./pages/lessons/14-fetch')),
+  },
+  {
+    id: '15-state-management',
+    section: '실전',
+    title: '상태 관리: 끌어올리기와 Context',
+    Body: lazy(() => import('./pages/lessons/15-state-management')),
+  },
+  {
+    id: '16-performance',
+    section: '실전',
+    title: '성능 최적화',
+    Body: lazy(() => import('./pages/lessons/16-performance')),
+  },
+  {
+    id: '17-deploy',
+    section: '실전',
+    title: '빌드와 배포',
+    Body: lazy(() => import('./pages/lessons/17-deploy')),
+  },
 ];
 
 export const totalLessons = lessons.length;
