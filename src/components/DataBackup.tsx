@@ -28,24 +28,14 @@ export default function DataBackup() {
     e.target.value = ''; // 같은 파일을 다시 선택할 수 있게 초기화
   };
 
-  const btnStyle = {
-    cursor: 'pointer',
-    border: '1px solid var(--border)',
-    background: 'var(--surface-2)',
-    color: 'var(--text)',
-    borderRadius: 'var(--radius)',
-    padding: '0.4rem 0.9rem',
-    fontSize: '0.9rem',
-  } as const;
-
   return (
     <section style={{ marginTop: '2.5rem', borderTop: '1px solid var(--border)', paddingTop: '1rem' }}>
       <h3 style={{ fontSize: '1rem' }}>진도·메모 백업</h3>
       <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap', alignItems: 'center' }}>
-        <button type="button" onClick={handleExport} style={btnStyle}>
+        <button type="button" onClick={handleExport} className="btn">
           내보내기 (JSON)
         </button>
-        <label style={btnStyle}>
+        <label className="btn">
           가져오기
           <input
             type="file"

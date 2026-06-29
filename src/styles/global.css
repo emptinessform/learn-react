@@ -74,6 +74,19 @@ button, input, textarea, select { font-family: inherit; }
   color: #fff;
 }
 
+/* ── 공통 버튼 ── */
+.btn {
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text);
+  border-radius: var(--radius);
+  padding: 0.4rem 0.9rem;
+  font-size: 0.9rem;
+}
+.btn:hover { border-color: var(--accent); }
+.btn:disabled { cursor: default; opacity: 0.7; }
+
 /* ── 레이아웃 ── */
 .app-shell { display: flex; align-items: flex-start; }
 .app-main { flex: 1; padding: 2rem; min-width: 0; }
