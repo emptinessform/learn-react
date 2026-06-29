@@ -2,6 +2,7 @@ import { glossary } from './glossary';
 import { qa } from './qa';
 import { exercises } from './exercises';
 import { quiz } from './quiz';
+import { references } from './references';
 import { lessons } from '../curriculum';
 
 test('용어 id는 중복이 없다', () => {
@@ -64,6 +65,23 @@ test('각 퀴즈 문제는 보기 2개 이상과 유효한 정답 인덱스를 �
       expect(q.options.length).toBeGreaterThanOrEqual(2);
       expect(q.answer).toBeGreaterThanOrEqual(0);
       expect(q.answer).toBeLessThan(q.options.length);
+    }
+  }
+});
+
+test('참고 링크 키는 모두 실제 강의 id다', () => {
+  const ids = new Set(lessons.map((l) => l.id));
+  for (const key of Object.keys(references)) {
+    expect(ids.has(key)).toBe(true);
+  }
+});
+
+test('각 참고 링크는 라벨과 http(s) URL을 가진다', () => {
+  for (const list of Object.values(references)) {
+    expect(list.length).toBeGreaterThan(0);
+    for (const ref of list) {
+      expect(ref.label.trim().length).toBeGreaterThan(0);
+      expect(/^https?:\/\//.test(ref.url)).toBe(true);
     }
   }
 });
