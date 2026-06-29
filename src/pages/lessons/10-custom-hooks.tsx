@@ -3,6 +3,7 @@ import CodeBlock from '../../components/CodeBlock';
 import Playground from '../../components/Playground';
 import Callout from '../../components/Callout';
 import TermLink from '../../components/TermLink';
+import CustomHookDiagram from '../../components/diagrams/CustomHookDiagram';
 
 export default function CustomHooks10() {
   return (
@@ -23,6 +24,7 @@ export default function CustomHooks10() {
 }`}
           caption="상태 로직을 함수로 묶어 재사용한다. 반환값의 모양은 자유롭게 정한다."
         />
+        <CustomHookDiagram />
       </Section>
 
       <Section title="쓰는 쪽은 단순해진다">

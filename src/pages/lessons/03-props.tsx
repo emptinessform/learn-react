@@ -3,6 +3,7 @@ import CodeBlock from '../../components/CodeBlock';
 import Playground from '../../components/Playground';
 import Callout from '../../components/Callout';
 import TermLink from '../../components/TermLink';
+import PropsFlowDiagram from '../../components/diagrams/PropsFlowDiagram';
 
 export default function Props03() {
   return (
@@ -22,6 +23,7 @@ export default function Props03() {
 <Welcome name="민수" />`}
           caption="name이라는 prop을 받아 화면에 표시한다."
         />
+        <PropsFlowDiagram />
       </Section>
 
       <Section title="구조 분해로 더 깔끔하게">

@@ -8,6 +8,9 @@ import ReactWorkflowDiagram from './ReactWorkflowDiagram';
 import StateUpdateDiagram from './StateUpdateDiagram';
 import UseEffectLifecycleDiagram from './UseEffectLifecycleDiagram';
 import ControlledInputDiagram from './ControlledInputDiagram';
+import PropsFlowDiagram from './PropsFlowDiagram';
+import ListRenderDiagram from './ListRenderDiagram';
+import CustomHookDiagram from './CustomHookDiagram';
 
 test('웹 3요소 도식은 접근성 라벨과 핵심 텍스트를 포함한다', () => {
   render(<WebTrioDiagram />);
@@ -72,4 +75,22 @@ test('제어 컴포넌트 흐름 도식은 접근성 라벨과 노드를 포함�
   expect(screen.getByRole('img', { name: '제어 컴포넌트 데이터 흐름' })).toBeInTheDocument();
   expect(screen.getByText('onChange(e)')).toBeInTheDocument();
   expect(screen.getByText('setState(값)')).toBeInTheDocument();
+});
+
+test('props 전달 도식은 접근성 라벨과 부모/자식을 포함한다', () => {
+  render(<PropsFlowDiagram />);
+  expect(screen.getByRole('img', { name: 'props 전달 흐름' })).toBeInTheDocument();
+  expect(screen.getByText('<App> (부모)')).toBeInTheDocument();
+});
+
+test('리스트 렌더링 도식은 접근성 라벨과 .map()을 포함한다', () => {
+  render(<ListRenderDiagram />);
+  expect(screen.getByRole('img', { name: '리스트 렌더링 (map + key)' })).toBeInTheDocument();
+  expect(screen.getByText('.map()')).toBeInTheDocument();
+});
+
+test('커스텀 훅 도식은 접근성 라벨과 useCounter를 포함한다', () => {
+  render(<CustomHookDiagram />);
+  expect(screen.getByRole('img', { name: '커스텀 훅으로 로직 공유' })).toBeInTheDocument();
+  expect(screen.getByText('useCounter()')).toBeInTheDocument();
 });

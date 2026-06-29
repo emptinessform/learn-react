@@ -3,6 +3,7 @@ import CodeBlock from '../../components/CodeBlock';
 import Playground from '../../components/Playground';
 import Callout from '../../components/Callout';
 import TermLink from '../../components/TermLink';
+import ListRenderDiagram from '../../components/diagrams/ListRenderDiagram';
 
 export default function List05() {
   return (
@@ -34,6 +35,7 @@ export default function List05() {
   ))}
 </ul>`}
         />
+        <ListRenderDiagram />
       </Section>
 
       <Section title="직접 해보기">
