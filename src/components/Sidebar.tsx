@@ -7,6 +7,7 @@ import ThemeToggle from './ThemeToggle';
 const REFS = [
   { to: '/', label: '개요' },
   { to: '/foundations', label: '배경과 원리' },
+  { to: '/history', label: '버전 역사' },
   { to: '/glossary', label: '용어 사전' },
   { to: '/qa', label: 'Q&A 모음' },
   { to: '/search', label: '검색' },
