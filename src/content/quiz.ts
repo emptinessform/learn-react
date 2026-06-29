@@ -5,7 +5,7 @@ export type QuizQuestion = {
   explanation?: string;
 };
 
-// 강의 id → 객관식 자가 점검 문제. Lesson 틀이 자동으로 렌더한다.
+// 강의 id → 객관식 자가 점검 문제. Lesson 틀이 자동으로 렌더한다(2개 이상이면 번호 표시).
 export const quiz: Record<string, QuizQuestion[]> = {
   '01-intro': [
     {
@@ -14,13 +14,24 @@ export const quiz: Record<string, QuizQuestion[]> = {
       answer: 1,
       explanation: '상태를 선언하면 React가 화면을 맞춰 줍니다.',
     },
+    {
+      question: 'DOM을 직접 조작하는 방식의 단점은?',
+      options: ['복잡해질수록 코드가 얽힌다', '항상 더 빠르다', '상태가 자동 관리된다', '브라우저가 필요 없다'],
+      answer: 0,
+    },
   ],
   '02-jsx': [
     {
       question: 'JSX의 중괄호 {} 안에 넣을 수 있는 것은?',
-      options: ['자바스크립트 표현식', 'if 문', 'for 문', 'import 문'],
+      options: ['자바스크립트 표현식', 'if 블록(statement)', 'for 블록', 'import 문'],
       answer: 0,
       explanation: '값을 만드는 "표현식"만 들어갑니다. 조건은 삼항/&&로.',
+    },
+    {
+      question: 'JSX에서 CSS 클래스를 지정하는 속성은?',
+      options: ['class', 'className', 'classNames', 'css'],
+      answer: 1,
+      explanation: 'class는 JS 예약어라 className을 씁니다.',
     },
   ],
   '03-props': [
@@ -30,6 +41,11 @@ export const quiz: Record<string, QuizQuestion[]> = {
       answer: 2,
       explanation: '값이 바뀌어야 하면 부모의 state를 바꾸도록 합니다.',
     },
+    {
+      question: 'props에서 name만 꺼내 받는 구조 분해 문법은?',
+      options: ['function C(props)', 'function C({ name })', 'function C([name])', 'function C(name)'],
+      answer: 1,
+    },
   ],
   '04-events': [
     {
@@ -37,6 +53,11 @@ export const quiz: Record<string, QuizQuestion[]> = {
       options: ['함수 호출 결과', '함수 자체', '문자열', '숫자'],
       answer: 1,
       explanation: 'onClick={fn} 또는 인자가 필요하면 onClick={() => fn(x)}.',
+    },
+    {
+      question: '입력값(onChange)을 읽을 때 흔히 쓰는 것은?',
+      options: ['e.value', 'e.target.value', 'e.input', 'value()'],
+      answer: 1,
     },
   ],
   '05-list': [
@@ -46,6 +67,12 @@ export const quiz: Record<string, QuizQuestion[]> = {
       answer: 0,
       explanation: '추가·삭제·변경을 React가 정확히 추적하도록 돕습니다.',
     },
+    {
+      question: '"조건이 참일 때만" 요소를 보여주는 데 흔히 쓰는 연산자는?',
+      options: ['&&', '||', '??', '!'],
+      answer: 0,
+      explanation: '{조건 && <X />} 형태로 씁니다.',
+    },
   ],
   '06-forms': [
     {
@@ -53,6 +80,11 @@ export const quiz: Record<string, QuizQuestion[]> = {
       options: ['ref', 'state', 'props만', 'DOM 직접'],
       answer: 1,
       explanation: 'value=state, 변경은 onChange로. "진실의 출처"가 state.',
+    },
+    {
+      question: '폼 제출 시 브라우저 새로고침을 막으려면?',
+      options: ['e.stopPropagation()', 'e.preventDefault()', 'return false 만', '아무것도 안 함'],
+      answer: 1,
     },
   ],
   '07-usestate': [
@@ -62,12 +94,24 @@ export const quiz: Record<string, QuizQuestion[]> = {
       answer: 0,
       explanation: 'const [값, set값] = useState(초기값).',
     },
+    {
+      question: '이전 값을 기반으로 안전하게 갱신하는 방법은?',
+      options: ['setX(x + 1)', 'setX((x) => x + 1)', 'x = x + 1', 'x++'],
+      answer: 1,
+      explanation: '함수형 업데이트는 같은 이벤트에서 연달아 갱신해도 안전합니다.',
+    },
   ],
   '08-useeffect': [
     {
       question: 'useEffect의 의존성 배열을 []로 두면?',
       options: ['매 렌더마다 실행', '마운트 시 한 번만 실행', '실행되지 않음', '클릭할 때마다 실행'],
       answer: 1,
+    },
+    {
+      question: '이펙트의 정리(cleanup)는 무엇으로 작성하나요?',
+      options: ['객체를 return', '함수를 return', 'throw로', '별도의 훅으로'],
+      answer: 1,
+      explanation: 'useEffect의 콜백이 반환한 함수가 정리 시 호출됩니다.',
     },
   ],
   '09-useref': [
@@ -77,6 +121,11 @@ export const quiz: Record<string, QuizQuestion[]> = {
       answer: 0,
       explanation: '리렌더와 무관한 값(타이머 id, DOM 등)에 적합합니다.',
     },
+    {
+      question: 'DOM 요소에 ref를 연결하는 JSX 속성은?',
+      options: ['ref', 'dom', 'node', 'bind'],
+      answer: 0,
+    },
   ],
   '10-custom-hooks': [
     {
@@ -85,12 +134,23 @@ export const quiz: Record<string, QuizQuestion[]> = {
       answer: 1,
       explanation: '내부에서 훅을 쓰며 이름이 use로 시작합니다.',
     },
+    {
+      question: '커스텀 훅이 컴포넌트 사이에서 공유하는 것은?',
+      options: ['상태 값 자체', '상태 로직', 'DOM', 'CSS'],
+      answer: 1,
+      explanation: '로직을 공유할 뿐, 각 컴포넌트의 상태는 독립적입니다.',
+    },
   ],
   '11-composition': [
     {
       question: '여는/닫는 태그 사이의 내용을 받는 특별한 prop은?',
       options: ['children', 'content', 'slot', 'body'],
       answer: 0,
+    },
+    {
+      question: 'React가 재사용을 위해 권장하는 방식은?',
+      options: ['상속', '합성(composition)', '전역 변수', '복사-붙여넣기'],
+      answer: 1,
     },
   ],
   '12-context': [
@@ -100,12 +160,22 @@ export const quiz: Record<string, QuizQuestion[]> = {
       answer: 1,
       explanation: '<Ctx.Provider value={...}> 아래에서 useContext로 꺼냅니다.',
     },
+    {
+      question: 'Context 객체를 만드는 함수는?',
+      options: ['makeContext', 'createContext', 'useContext', 'newContext'],
+      answer: 1,
+    },
   ],
   '13-routing': [
     {
       question: '주소의 동적 부분(:id)을 읽는 훅은?',
       options: ['useParams', 'useState', 'useEffect', 'useRef'],
       answer: 0,
+    },
+    {
+      question: '현재 활성화된 링크를 강조하기 좋은 컴포넌트는?',
+      options: ['Link', 'NavLink', 'Route', 'Anchor'],
+      answer: 1,
     },
   ],
   '14-fetch': [
@@ -115,12 +185,23 @@ export const quiz: Record<string, QuizQuestion[]> = {
       answer: 1,
       explanation: '렌더 바깥의 일(사이드 이펙트)이라 useEffect에서 처리합니다.',
     },
+    {
+      question: '데이터를 다룰 때 함께 관리하면 좋은 상태는?',
+      options: ['로딩·에러 상태', '글꼴', '색상', '라우트'],
+      answer: 0,
+      explanation: '"아직 안 옴 / 왔음 / 실패함" 세 경우를 모두 그려 줍니다.',
+    },
   ],
   '15-state-management': [
     {
       question: '형제 컴포넌트가 같은 값을 공유하려면?',
       options: ['각자 state를 둔다', '공통 부모로 끌어올린다', '전역 변수를 쓴다', 'ref로 공유한다'],
       answer: 1,
+    },
+    {
+      question: '상태를 필요 이상으로 위(루트 등)로 끌어올리면?',
+      options: ['불필요한 리렌더가 늘 수 있다', '항상 더 빨라진다', '버그가 사라진다', '타입이 강해진다'],
+      answer: 0,
     },
   ],
   '16-performance': [
@@ -130,6 +211,11 @@ export const quiz: Record<string, QuizQuestion[]> = {
       answer: 2,
       explanation: '함수는 useCallback, 컴포넌트는 React.memo.',
     },
+    {
+      question: '함수를 메모이제이션하는 훅은?',
+      options: ['useMemo', 'useCallback', 'useRef', 'useState'],
+      answer: 1,
+    },
   ],
   '17-deploy': [
     {
@@ -137,6 +223,12 @@ export const quiz: Record<string, QuizQuestion[]> = {
       options: ['dist', 'build', 'out', 'public'],
       answer: 0,
       explanation: 'npm run build → dist/ (정적 파일).',
+    },
+    {
+      question: '다음 중 정적 호스팅이 아닌 것은?',
+      options: ['Vercel', 'Netlify', 'GitHub Pages', 'MySQL'],
+      answer: 3,
+      explanation: 'MySQL은 데이터베이스입니다.',
     },
   ],
   '18-capstone-todo': [
@@ -146,12 +238,23 @@ export const quiz: Record<string, QuizQuestion[]> = {
       answer: 2,
       explanation: '새 배열로 교체해야 React가 변경을 감지합니다(불변 업데이트).',
     },
+    {
+      question: '배열의 각 항목을 변환해 새 배열을 만드는 메서드는?',
+      options: ['push', 'map', 'sort', 'reverse'],
+      answer: 1,
+      explanation: '완료 토글·렌더링 모두 map으로 새 배열을 만듭니다.',
+    },
   ],
   '19-capstone-stopwatch': [
     {
       question: 'setInterval을 useEffect 정리(cleanup)로 치우지 않으면?',
       options: ['인터벌이 쌓여 더 빨라진다', '자동으로 정리된다', '에러가 난다', '한 번만 실행된다'],
       answer: 0,
+    },
+    {
+      question: '타이머 id처럼 "리렌더와 무관한 값" 보관에 적합한 것은?',
+      options: ['useState', 'useRef', 'useMemo', 'props'],
+      answer: 1,
     },
   ],
 };
