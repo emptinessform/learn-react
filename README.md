@@ -41,3 +41,7 @@ npm run build    # dist/ 로 정적 빌드
 ## 문서
 
 - 설계 문서: [docs/superpowers/specs/2026-06-27-react-curriculum-site-design.md](docs/superpowers/specs/2026-06-27-react-curriculum-site-design.md)
+
+## 라이선스
+
+[MIT](LICENSE) © 2026 emptinessform
