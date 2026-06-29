@@ -1,6 +1,7 @@
 import { glossary } from './glossary';
 import { qa } from './qa';
 import { exercises } from './exercises';
+import { quiz } from './quiz';
 import { lessons } from '../curriculum';
 
 test('용어 id는 중복이 없다', () => {
@@ -44,6 +45,25 @@ test('각 연습문제는 질문과 답을 가진다', () => {
     for (const ex of list) {
       expect(ex.question.trim().length).toBeGreaterThan(0);
       expect(ex.answer.trim().length).toBeGreaterThan(0);
+    }
+  }
+});
+
+test('퀴즈 키는 모두 실제 강의 id다', () => {
+  const ids = new Set(lessons.map((l) => l.id));
+  for (const key of Object.keys(quiz)) {
+    expect(ids.has(key)).toBe(true);
+  }
+});
+
+test('각 퀴즈 문제는 보기 2개 이상과 유효한 정답 인덱스를 가진다', () => {
+  for (const list of Object.values(quiz)) {
+    expect(list.length).toBeGreaterThan(0);
+    for (const q of list) {
+      expect(q.question.trim().length).toBeGreaterThan(0);
+      expect(q.options.length).toBeGreaterThanOrEqual(2);
+      expect(q.answer).toBeGreaterThanOrEqual(0);
+      expect(q.answer).toBeLessThan(q.options.length);
     }
   }
 });

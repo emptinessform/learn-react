@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useProgress } from '../hooks/useProgress';
 import LessonExercises from './LessonExercises';
+import LessonQuiz from './LessonQuiz';
 import LessonNotes from './LessonNotes';
 
 export type LessonNav = { id: string; title: string };
@@ -43,6 +44,8 @@ export default function Lesson({
       {children}
 
       <LessonExercises id={id} />
+
+      <LessonQuiz id={id} />
 
       <LessonNotes id={id} />
 
