@@ -7,7 +7,9 @@ export default function LessonExercises({ id }: { id: string }) {
 
   return (
     <section style={{ marginTop: '2.5rem' }}>
-      <h3 style={{ fontSize: '1.05rem', marginBottom: '0.5rem' }}>✏️ 연습문제</h3>
+      <h3 style={{ fontSize: '1.05rem', marginBottom: '0.5rem' }}>
+        <span aria-hidden="true">✏️</span> 연습문제
+      </h3>
       {list.map((ex, i) => (
         <div
           key={i}

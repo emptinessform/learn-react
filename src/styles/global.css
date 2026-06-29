@@ -74,6 +74,22 @@ button, input, textarea, select { font-family: inherit; }
   color: #fff;
 }
 
+/* ── 건너뛰기 링크 (키보드 포커스 시에만 보임) ── */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  cursor: pointer;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 0.5rem 0.9rem;
+  font-size: 0.9rem;
+}
+.skip-link:focus { left: 0.5rem; top: 0.5rem; }
+
 /* ── 공통 버튼 ── */
 .btn {
   cursor: pointer;

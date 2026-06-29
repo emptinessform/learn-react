@@ -65,7 +65,9 @@ export default function LessonQuiz({ id }: { id: string }) {
 
   return (
     <section style={{ marginTop: '2.5rem' }}>
-      <h3 style={{ fontSize: '1.05rem', marginBottom: '0.5rem' }}>🧩 이해도 점검</h3>
+      <h3 style={{ fontSize: '1.05rem', marginBottom: '0.5rem' }}>
+        <span aria-hidden="true">🧩</span> 이해도 점검
+      </h3>
       {list.map((q, i) => (
         <QuizItem key={i} q={q} index={i} total={list.length} />
       ))}

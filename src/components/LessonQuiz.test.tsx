@@ -4,7 +4,7 @@ import { quiz } from '../content/quiz';
 
 test('해당 강의의 퀴즈를 렌더링한다', () => {
   render(<LessonQuiz id="01-intro" />);
-  expect(screen.getByText('🧩 이해도 점검')).toBeInTheDocument();
+  expect(screen.getByRole('heading', { name: '이해도 점검' })).toBeInTheDocument();
 });
 
 test('퀴즈가 없는 id면 아무것도 렌더링하지 않는다', () => {

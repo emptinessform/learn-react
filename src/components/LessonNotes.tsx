@@ -5,7 +5,9 @@ export default function LessonNotes({ id }: { id: string }) {
 
   return (
     <section style={{ marginTop: '2.5rem' }}>
-      <h3 style={{ fontSize: '1rem', marginBottom: '0.5rem' }}>📝 학습 메모</h3>
+      <h3 style={{ fontSize: '1rem', marginBottom: '0.5rem' }}>
+        <span aria-hidden="true">📝</span> 학습 메모
+      </h3>
       <textarea
         value={note}
         onChange={(e) => setNote(e.target.value)}

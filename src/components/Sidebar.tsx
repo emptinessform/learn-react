@@ -21,41 +21,45 @@ export default function Sidebar({
 }) {
   const { isDone } = useProgress();
   return (
-    <aside className={`sidebar${open ? ' sidebar--open' : ''}`}>
+    <aside id="sidebar" className={`sidebar${open ? ' sidebar--open' : ''}`}>
       <ThemeToggle />
       <SidebarSearch onNavigate={onNavigate} />
 
-      <h3 style={{ color: 'var(--text-dim)', fontSize: '0.85rem' }}>참고 자료</h3>
-      <ul style={{ listStyle: 'none', padding: 0 }}>
-        {REFS.map((r) => (
-          <li key={r.to}>
-            <NavLink to={r.to} end onClick={onNavigate} style={{ display: 'block', padding: '0.3rem 0' }}>
-              {r.label}
-            </NavLink>
-          </li>
-        ))}
-      </ul>
+      <nav aria-label="참고 자료">
+        <h3 style={{ color: 'var(--text-dim)', fontSize: '0.85rem' }}>참고 자료</h3>
+        <ul style={{ listStyle: 'none', padding: 0 }}>
+          {REFS.map((r) => (
+            <li key={r.to}>
+              <NavLink to={r.to} end onClick={onNavigate} style={{ display: 'block', padding: '0.3rem 0' }}>
+                {r.label}
+              </NavLink>
+            </li>
+          ))}
+        </ul>
+      </nav>
 
-      <h3 style={{ color: 'var(--text-dim)', fontSize: '0.85rem' }}>커리큘럼</h3>
-      {lessonsBySection().map((sec) => (
-        <div key={sec.name}>
-          <div style={{ fontWeight: 'bold', marginTop: '0.8rem' }}>{sec.name}</div>
-          <ul style={{ listStyle: 'none', padding: 0 }}>
-            {sec.lessons.map((l) => (
-              <li key={l.id}>
-                <NavLink
-                  to={`/lesson/${l.id}`}
-                  onClick={onNavigate}
-                  style={{ display: 'block', padding: '0.25rem 0' }}
-                >
-                  {isDone(l.id) ? '✓ ' : '○ '}
-                  {l.title}
-                </NavLink>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
+      <nav aria-label="커리큘럼">
+        <h3 style={{ color: 'var(--text-dim)', fontSize: '0.85rem' }}>커리큘럼</h3>
+        {lessonsBySection().map((sec) => (
+          <div key={sec.name}>
+            <div style={{ fontWeight: 'bold', marginTop: '0.8rem' }}>{sec.name}</div>
+            <ul style={{ listStyle: 'none', padding: 0 }}>
+              {sec.lessons.map((l) => (
+                <li key={l.id}>
+                  <NavLink
+                    to={`/lesson/${l.id}`}
+                    onClick={onNavigate}
+                    style={{ display: 'block', padding: '0.25rem 0' }}
+                  >
+                    {isDone(l.id) ? '✓ ' : '○ '}
+                    {l.title}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </nav>
     </aside>
   );
 }
