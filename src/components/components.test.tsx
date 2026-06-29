@@ -15,6 +15,11 @@ test('Callout은 타입 라벨을 렌더링한다', () => {
   expect(screen.getByText('⚠️ 주의')).toBeInTheDocument();
 });
 
+test('Callout key 변형 라벨을 렌더링한다', () => {
+  render(<Callout type="key">중요</Callout>);
+  expect(screen.getByText('🔑 핵심')).toBeInTheDocument();
+});
+
 test('CodeBlock은 코드를 렌더링한다', () => {
   // 구문 강조로 코드가 여러 토큰 span으로 나뉘므로 전체 텍스트로 확인한다.
   const { container } = render(<CodeBlock code="const a = 1;" />);

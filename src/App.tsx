@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import ScrollToHash from './components/ScrollToHash';
+import ReadingProgress from './components/ReadingProgress';
+import OnThisPage from './components/OnThisPage';
 import Overview from './pages/Overview';
 import Foundations from './pages/Foundations';
 import History from './pages/History';
@@ -26,6 +28,8 @@ export default function App() {
 
   return (
     <div className="app-shell">
+      <ReadingProgress />
+
       <button
         type="button"
         className="skip-link"
@@ -52,6 +56,7 @@ export default function App() {
       <Sidebar open={navOpen} onNavigate={closeNav} />
 
       <main id="main" tabIndex={-1} className="app-main">
+        <OnThisPage />
         <Routes>
           <Route path="/" element={<Overview />} />
           <Route path="/foundations" element={<Foundations />} />
